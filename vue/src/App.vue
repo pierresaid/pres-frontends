@@ -13,7 +13,7 @@ const uncompletedTodos = computed(() => {
 
 const text = ref("");
 function resetText() {
-  text.value = "";
+  text.value = ""; // Direct mutation
 }
 
 function addTodo() {
@@ -28,7 +28,7 @@ function addTodo() {
 
 <template>
   <main>
-    <h1>Todo List</h1>
+    <h1>Vue.js</h1>
     <ul>
       <li v-for="todo in uncompletedTodos" :key="todo.id">
         <input type="checkbox" v-model="todo.done" />

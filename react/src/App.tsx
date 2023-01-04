@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+import { useMemo, useState } from 'react'
 
 function App() {
   const [todos, setTodos] = useState([
@@ -23,16 +22,23 @@ function App() {
     resetText()
   }
 
+  function toggleTodo(id: number) {
+    const newTodos = todos.map(todo =>
+      todo.id === id ? { ...todo, done: !todo.done } : todo
+    )
+    setTodos(newTodos)
+  }
+
   return (
-    <div className="App">
-      <h1>Todo List</h1>
+    <div>
+      <h1>React.js</h1>
       <ul>
         {uncompletedTodos.map(todo => (
           <li key={todo.id}>
-            <input type="checkbox" checked={todo.done} />
             <span>{todo.text}</span>
+            <input type="checkbox" checked={todo.done} onChange={() => toggleTodo(todo.id)} />
           </li>
-          ))}
+        ))}
       </ul>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={addTodo}>Add Todo</button>

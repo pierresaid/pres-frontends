@@ -1,5 +1,5 @@
 <script lang="ts">
-  const todos = [
+  let todos = [
     { id: 1, text: "Hello", done: true },
     { id: 2, text: "Hallo", done: false },
     { id: 3, text: "Bonjour", done: false },
@@ -13,13 +13,13 @@
   }
 
   function addTodo() {
-    todos.push({ id: todos.length + 1, text, done: false });
+    todos = [...todos, { id: todos.length + 1, text, done: false }];
     resetText();
   }
 </script>
 
 <main>
-  <h1>Todo</h1>
+  <h1>Svelte</h1>
   <ul>
     {#each uncompletedTodos as todo}
       <li>
