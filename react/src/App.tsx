@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div>
+    <main>
       <h1>React.js</h1>
       <ul>
         {uncompletedTodos.map(todo => (
@@ -42,7 +42,7 @@ function App() {
       </ul>
       <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={addTodo}>Add Todo</button>
-    </div>
+    </main>
   )
 }
 
